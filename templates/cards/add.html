@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block og_title %}Log in{% endblock %}
+{% block title %}Log in{% endblock %}
+
+{% block content %}
+<section class="page page--form">
+  <div class="container">
+
+    <h2 class="title">Add Card</h2>
+
+    <p class="prompt">
+      Add a new card
+    </p>
+
+    <div class="card">
+      <div class="card-body">
+
+        <form method="post">
+          {% csrf_token %}
+
+          <div class="non-field-errors">
+            {% if form.errors %}
+            <p>
+              {% if form.errors.items|length == 1 %}
+              Please correct the error below.
+              {% else %}Please correct the errors below.{% endif %}
+            </p>
+            {% endif %}
+            {{ form.non_field_errors }}
+          </div>
+
+          <div class="form-group {% if form.word.errors %}has-error{% endif %}">
+            <label class="form-label" for="{{ form.word.id_for_label }}">
+              {{ form.word.label }}
+            </label>
+            {{ form.word }}
+            {{ form.word.errors }}
+          </div>
+          
+          <div class="form-group form-group--btn">
+            <button class="btn btn-primary btn-lg" type="submit">Add</button>
+            <button class="btn btn-link btn-lg" type="reset">Reset</button>
+          </div>
+        </form>
+        
+      </div> <!-- /.card-body -->
+    </div> <!-- /.card -->
+    
+  </div> <!-- /.container -->
+</section>
+{% endblock %}

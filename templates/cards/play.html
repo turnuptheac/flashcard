@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block og_title %}Play{% endblock %}
+{% block title %}Play{% endblock %}
+
+{% block content %}
+<section class="page page--content">
+  <div class="container">
+
+    {% if card %}
+    <h2 class="title">Did you get this right?</h2>
+    
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title h5">{{ card.word }}</div>
+        <div class="card-subtitle text-gray">Bin #{{ card.bucket }}</div>
+      </div> <!-- /.card-header -->
+      
+      <div class="card-footer">
+        <form method="post" action="{% url 'cards_success' card.id %}">
+          {% csrf_token %}
+          <button class="btn btn-success" type="submit">
+            Got it
+          </button>
+        </form>
+
+        <form method="post" action="{% url 'cards_failure' card.id %}">
+          {% csrf_token %}
+          <button class="btn btn-error" type="submit" value="no">
+            Nope
+          </button>
+        </form>
+      </div> <!-- /.card-footer -->
+    </div> <!-- /.card -->
+
+    {% else %}
+
+    {% if not has_cards %}
+    <div class="toast toast-warning">
+      You don't have any cards. You should add one.
+    </div>
+    {% endif %}
+
+    {% if temporarily_done %}
+    <div class="toast toast-warning">
+      You are temporarily done; please come back later to review more words.
+    </div>
+    {% endif %}
+    
+    {% if permanently_done %}
+    <div class="toast toast-error">
+      You have no more words to review; you are permanently done!
+    </div>
+    {% endif %}
+    
+    {% endif %}
+
+    <div class="card">
+      <div class="card-footer">
+        <a class="btn btn-primary" href="{% url 'cards_add' %}">Add Word</a>
+      </div>
+    </div>
+
+</section>
+{% endblock %}

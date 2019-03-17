@@ -1,0 +1,60 @@
+////////////////////////////////////////////////////////////////////////////////
+//
+// _footers.scss
+//
+// Use this partial to style the (sticky) footers
+//
+////////////////////////////////////////////////////////////////////////////////
+
+html {
+    min-height: 100%;
+    position: relative;
+}
+
+body {
+    margin-bottom: $height-footer;
+}
+
+.footer {
+    background-color: #232f3c;
+    bottom: 0;
+    font-size: $fontSize-base;
+    position: absolute;
+    width: 100%;
+}
+
+// Default footer
+.footer--default {
+    min-height: $height-footer;
+}
+
+.footer--default .footer-links {
+    @include align-items(center);
+    @include display-flex;
+    @include justify-content(space-between);
+    font-size: $fontSize-medium--small;
+    height: $height-footer;
+    margin: 0 auto;
+    max-width: $maxWidth-content;
+}
+
+.footer--default .footer-partition--left {
+    text-align: left;
+}
+
+.footer--default .footer-partition--right {
+    text-align: right;
+}
+
+.footer--default .footer-links a {
+    color: #ffffff;
+    padding: 0 5px 5px;
+}
+
+.footer--default .footer-links a + a {
+    margin-left: 10px;
+}
+
+.footer--default .footer-links a:hover {
+    text-decoration: underline;
+}

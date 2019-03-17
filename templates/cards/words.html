@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block og_title %}Cards{% endblock %}
+{% block title %}Cards{% endblock %}
+
+
+{% block content %}
+<section class="page page--list">
+  <div class="container">
+
+    <div class="tile tile-centered tile--title">
+      <div class="tile-content">
+        <div class="tile-title h2">Cards</div>
+      </div>
+      <div class="tile-action">
+        <a href="{% url 'cards_add' %}" class="btn btn-primary">
+          <i class="icon icon-plus"></i>
+        </a>
+      </div>
+    </div>
+
+    {% for card in cards %}
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title h5">{{ card.word }}</div>
+        <div class="card-subtitle text-gray">Bin #{{ card.bucket }}</div>
+      </div>
+      <div class="card-footer">
+        Failed count: {{ card.wrong_count }}
+      </div>
+    </div>
+    
+    {% empty %}
+    <section class="empty">
+      <div class="empty-icon">
+        <i class="icon icon-3x icon-cross"></i>
+      </div>
+      <h4 class="empty-title">No cards added</h4>
+      <p class="empty-subtitle">
+        And you can get started quickly!
+      </p>
+      <div class="empty-action">
+        <a href="{% url 'cards_add' %}" class="btn btn-primary btn-lg">
+          Add a Card
+        </a>
+      </div>
+    </section>
+    {% endfor %}
+    
+    {% if cards.has_other_pages %}
+    <ul class="pagination">
+      <li class="page-item">
+        {% if cards.has_previous %}
+        <a href="?page={{ cards.previous_page_number }}">Prev</a>
+        {% else %}
+        <a href="javascript:;" disabled tabindex="-1">Prev</a>
+        {% endif %}
+      </li>
+      
+      {% for page in page_numbers %}
+      <li class="page-item {% if page == cards.number %}active{% endif %}">
+        {% if page %}
+        <a href="?page={{ page }}">{{ page }}</a>
+        {% else %}
+        <span>...</span>
+        {% endif %}
+      </li>
+      {% endfor %}
+      
+      <li class="page-item">
+        {% if cards.has_next %}
+        <a href="?page={{ cards.next_page_number }}">Next</a>
+        {% else %}
+        <a href="javascript:;" disabled tabindex="-1">Next</a>
+        {% endif %}
+      </li>
+    </ul>
+    {% endif %}
+    
+</section>
+{% endblock %}

@@ -1,0 +1,17 @@
+////////////////////////////////////////////////////////////////////////////////
+//
+// _spectre.scss
+//
+// Use this partial to setup spectre as used by the project
+//
+////////////////////////////////////////////////////////////////////////////////
+
+// Variables to override the defaults
+$primary-color: $color-primary;
+$error-color: $color-red;
+
+// Spectre
+@import "spectre/spectre";
+
+// Spectre icons
+@import "spectre/spectre-icons";

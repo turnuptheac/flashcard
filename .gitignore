@@ -1,0 +1,13 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+*~
+*.jgz
+*.gz
+*.DS_Store
+
+*.sass-cache/
+venv/
+flashcard/settings_secret.py

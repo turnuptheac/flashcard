@@ -1,0 +1,66 @@
+////////////////////////////////////////////////////////////////////////////////
+//
+// app.scss
+//
+// In this file you should write your main styles. (or centralize your imports)
+//
+////////////////////////////////////////////////////////////////////////////////
+
+// Variables and mixins
+@import "variables";
+@import "zindex";
+
+// Reset and dependencies
+@import "base";
+@import "reset";
+
+
+// Spectre customizations
+@import "spectre";
+
+// Layout
+@import "layout";
+@import "navbar";
+@import "footers";
+
+// Components
+@import "forms";
+@import "messages";
+@import "typography";
+
+// Pages
+@import "cards";
+@import "error";
+
+html {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+    background-color: #fff;
+    color: $color-black;
+    font-family: $fontFamily-sans;
+    font-weight: $fontWeight-normal;
+    font-size: $fontSize-base;
+    line-height: $lineHeight-base;
+}
+
+a {
+    color: $color-primary;
+}
+
+a:hover {
+    color: $color-primaryDark;
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active,
+a:focus {
+    @include box-shadow(none);
+    outline: none;
+    text-decoration: none;
+}
+

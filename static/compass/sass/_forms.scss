@@ -1,0 +1,109 @@
+////////////////////////////////////////////////////////////////////////////////
+//
+// _forms.scss
+//
+// Use this partial to style the forms
+//
+////////////////////////////////////////////////////////////////////////////////
+
+form,
+.non-field-errors {
+    margin: 0 auto;
+    max-width: $maxWidth-form;
+    width: 100%;
+}
+
+.form-group--btn {
+    padding: 0.5rem 0;
+}
+
+.form-input,
+.form-select {
+    @include appearance(none);
+}
+
+.form-select.input-lg {
+    font-size: 0.8rem;
+}
+
+.form-select:not([multiple]).input-lg {    
+    height: 2rem;
+    padding: .45rem 1.2rem .45rem .4rem;
+}
+
+.form-select[multiple] {
+    background: #fff url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23667189' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E") no-repeat right .75rem center / .8rem 1rem;
+    padding-right: 2.4rem;
+}
+
+.form-select[multiple].input-lg {
+    min-height: 2rem;
+    
+}
+
+.form-select[multiple].input-lg option {
+    padding: .45rem .4rem;
+}
+
+
+.form-group:not(.has-error) .form-input:not(:placeholder-shown):invalid {
+    border-color: #c4c9d3;
+}
+                                             
+.form-group:not(.has-error) .form-input:not(:placeholder-shown):invalid:focus {
+    @include box-shadow(none);
+}
+
+.non-field-errors,
+form .non-field-errors,
+form .errorlist,
+.form-group .errorlist {
+    color: $color-red;
+    font-size: $fontSize-medium--small;
+}
+
+form .errorlist,
+.form-group .errorlist {
+    margin: 0.5rem 0;
+}
+
+.non-field-errors li,
+form .non-field-errors li,
+form .has-error .errorlist li,
+.form-group.has-error .errorlist li {
+    margin-top: 0.25rem;
+}
+
+form label {
+    font-size: $fontSize-medium--small;
+}
+
+form .divider {
+    margin: 1.8rem 0 0.8rem;
+}
+
+form .form-group + .divider {
+    margin-top: 2.5rem;
+}
+
+form .form-group .form-text {
+    color: $color-gray;
+    font-size: 0.7rem;
+    padding: 0.25rem 0;
+}
+
+form .column > .form-group {
+    margin-bottom: 0.4rem
+}
+
+form textarea.form-input.input-lg {
+    height: 4rem;
+}
+
+form .intl-tel-input {
+    width: 100%;
+}
+
+.form-checkbox {
+    font-size: $font-size;
+}

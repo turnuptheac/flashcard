@@ -1,0 +1,154 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head 
+         content must come *after* these tags -->
+    <meta name="description" content="{% block meta_description %}Flashcard is quite the experience.{% endblock %}">
+    <meta name="author" content="Flashcard">
+    
+    <!-- Facebook Meta -->
+    <meta property="og:title"
+          content="{% block og_title_block %}
+                   {% block og_title %}{% endblock %} | Flashcard
+                   {% endblock %}" >
+    <meta property="og:site_name" content="Flaschard" >
+    <meta property="og:url" content="{% block og_url %}https://flashcard.nnoduka.com{{ request.path }}{% endblock %}" >
+    <meta property="og:description" content="{% block og_description %}Flashcard is quite the experience.{% endblock %}">
+
+    <meta name="google-site-verification"
+          content="1qar5FJr2p18S4dgxIY2apQf9Hd9GYXRm71HACHgqdw" />
+    
+    <title>
+      {% block title_block %}
+      {% block title %}{% endblock %} | Flashcard
+      {% endblock %}
+    </title>
+    
+    
+    <!-- Favicons [Generated at https://realfavicongenerator.net]
+         ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180"
+          href="{% static 'img/favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32"
+          href="{% static 'img/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16"
+          href="{% static 'img/favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'img/favicon/manifest.json' %}">
+    <link rel="mask-icon" color="#1c69e6"
+          href="{% static 'img/favicon/safari-pinned-tab.svg' %}">
+    <link rel="shortcut icon" href="{% static 'img/favicon/favicon.ico' %}">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="msapplication-config"
+          content="{% static 'img/favicon/browserconfig.xml' %}">
+    <meta name="theme-color" content="#ffffff">
+
+    
+    <!-- CSS
+         ================================================== -->
+    {% block morecss %}
+    {% endblock %}
+    
+    <!-- Custom CSS -->
+    <link href="{% static 'css/app.css' %}?v=1"
+          rel="stylesheet" type="text/css">
+  </head>
+  
+  <body>
+    {% block body %}
+
+    <!-- Navigation Bar
+         ================================================== -->
+    {% block navbar %}
+    <nav class="navbar navbar--default navbar--fixed-top {% block navbar-class %}{% endblock %}" role="navigation">
+      <section class="container">
+        <section class="navbar-section">
+          <a href="/" class="navbar-brand">
+            <span class="logo logo--glyph"></span>
+          </a> <!-- /.navbar-brand -->
+        </section> <!-- /.navbar-section -->
+
+        <section class="navbar-section">
+          {% block navbar-links %}{% endblock %}
+          
+          {% if request.user.is_authenticated %}
+          <div class="dropdown dropdown-right">
+            <a href="javascript:;" class="btn btn-primary dropdown-toggle"
+               tabindex="0">
+              {{ request.user.get_full_name_initials }}
+              <i class="icon icon-caret"></i>
+            </a>
+            <ul class="menu">
+              <li class="menu-item">
+                <a href="/admin/">Admin</a>
+              </li>
+              <li class="menu-item">
+                <a href="{% url 'cards_display' %}">All Cards</a>
+              </li>
+              <li class="divider"></li>
+              <li class="menu-item">
+                <a href="{% url 'logout' %}">Log out</a>
+              </li>
+            </ul>
+          </div>
+          {% else %}
+          <a href="{% url 'login' %}" class="btn btn-primary">Log in</a>
+          {% endif %}
+          
+          {% block navbar-menu %}{% endblock %}
+        </section> <!-- /.navbar-section -->
+      </section> <!-- /.container -->
+    </nav>
+    {% endblock %}
+
+    <!-- Django messages
+         ================================================== -->
+    {% if messages %}
+    <ul class="messagelist">
+      {% for message in messages %}
+      <li{% if message.tags %}
+            class="toast toast-{{ message.tags }}"{% endif %}>
+        {{ message|capfirst }}
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    
+    <!-- Content of the page
+         ================================================== -->
+    {% block content %}
+    {% endblock %}
+    
+    <!-- Footer
+         ================================================== -->
+    {% block footer %}
+    <footer class="footer footer--default">
+      <div class="container">
+        <div class="footer-links">
+          <div class="footer-partition footer-partition--left">
+            <a href="/admin/" target="_blank">Admin</a>
+            <a href="https://nnoduka.com" target="_blank">
+              Built by Noddy</a>
+            
+          </div>
+          <div class="footer-partition footer-partition--right">
+            <a href="mailto:noddy@nnoduka.com">Contact</a>
+          </div>
+        </div>
+      </div> <!-- /.container -->
+    </footer>
+    {% endblock %}
+
+    
+    {% endblock %}
+    
+    <!-- JavaScript
+         ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  </body>
+</html>

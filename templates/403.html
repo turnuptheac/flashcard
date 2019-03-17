@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block og_title %}Forbidden{% endblock %}
+{% block title %}Forbidden{% endblock %}
+
+{% block body %}
+<nav class="navbar navbar--error navbar--fixed-top">
+  <div class="container">
+    <a href="/" class="navbar-logo"></a>
+  </div>
+</nav> <!-- /.navbar -->
+
+<div class="container container--error">
+  
+  <div class="errorPage">
+    <div class="errorPage-details">
+      
+      <div class="errorPage-icon">
+        <span class="errorPage-code">403</span>
+      </div> <!-- /.errorPage-icon -->
+      
+      <div class="errorPage-content">
+        <h2 class="errorPage-message">Permission denied</h2>
+        
+        <p class="errorPage-message errorPage-message--small">
+          Access to this page is not allowed, but you can 
+          <a href="/">get back on track</a>.
+        </p>
+      </div> <!-- /.errorPage-content -->
+      
+    </div> <!-- /.errorPage-details -->
+  </div> <!-- /.errorPage -->
+
+</div> <!-- /.container  -->
+{% endblock %}

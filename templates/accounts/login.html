@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block og_title %}Log in{% endblock %}
+{% block title %}Log in{% endblock %}
+
+{% block content %}
+<section class="page page--form">
+  <div class="container">
+
+    <h2 class="title">Log in</h2>
+
+    <p class="prompt">
+      Please log in to play.
+    </p>
+    
+    <form method="post">
+      {% csrf_token %}
+
+      <div class="non-field-errors">
+        {% if form.errors %}
+        <p>
+          {% if form.errors.items|length == 1 %}
+          Please correct the error below.
+          {% else %}Please correct the errors below.{% endif %}
+        </p>
+        {% endif %}
+        {{ form.non_field_errors }}
+      </div>
+
+      <div class="form-group {% if form.username.errors %}has-error{% endif %}">
+        <label class="form-label" for="{{ form.username.id_for_label }}">
+          Email
+        </label>
+        <input class="form-input input-lg"  type="email"
+               name="{{ form.username.name }}"
+               required id="{{ form.username.id_for_label }}">
+        {{ form.username.errors }}
+      </div>
+      
+      <div class="form-group {% if form.password.errors %}has-error{% endif %}">
+        <label class="form-label" for="{{ form.password.id_for_label }}">
+          Password
+        </label>
+        <input class="form-input input-lg"  type="password"
+               name="{{ form.password.name }}"
+               required id="{{ form.password.id_for_label }}">
+        {{ form.password.errors }}
+      </div>
+      
+      <div class="form-group form-group--btn">
+        <button class="btn btn-primary btn-lg" type="submit">Log in</button>
+        <button class="btn btn-link btn-lg" type="reset">Reset</button>
+      </div>
+    </form>
+
+    <p>
+      <a href="/admin/"
+         class="btn btn-link btn-lg pl-0">Login as Admin</a>
+    </p>
+</section>
+{% endblock %}

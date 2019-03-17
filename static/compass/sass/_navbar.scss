@@ -1,0 +1,148 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// _navbar.scss
+//
+// Use this partial to style the navigation bars
+//
+////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * Default Navbar
+ */
+.navbar--default {
+    background: rgba(248,249,250,0.65);
+    height: $height-nav;
+}
+
+.navbar--default > .container {
+    @include align-items(center);
+    @include display-flex;
+    @include flex-wrap(wrap);
+    @include justify-content(space-between);
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.navbar--default .btn-link + .btn-primary,
+.navbar--default .btn-link + .dropdown {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+
+/**
+ * Fixed Navigation Bar
+ */
+.navbar--fixed-top {
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: $zIndex-2;
+}
+
+.navbar--fixed-top + header,
+.navbar--fixed-top + section {
+    margin-top: $height-nav;
+}
+
+.navbar--transparent {
+    background: none;
+}
+
+
+/**
+ * Navigation bar logo
+ */
+.navbar-brand .logo {
+    @include transition(all 300ms ease-in-out 0s);
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 30px;
+    vertical-align: middle;
+}
+
+.navbar-brand .logo--glyph {
+    @include background-size(30px 30px);
+    background-image: url(../img/logo.svg);
+    width: 30px;
+    z-index: $zIndex-3;
+}
+
+.navbar-section a + a,
+.navbar-section a + .dropdown {
+    margin-left: 0.5rem;
+}
+
+
+
+/**
+ * Sidebar
+ */
+.sidebar-clear {
+    display: none;
+}
+
+.sidebar .nav .nav-item a.btn {
+    color: #fff;
+}
+
+@media (min-width: $size-sm + 1px) {
+    .sidebar {
+        padding: 3.5rem 0.5rem 0.5rem 0.5rem;
+    }
+
+    .sidebar > .nav {
+        position: relative;
+    }
+
+    @supports ((position: -webkit-sticky) or (position: sticky)) {
+        .sidebar > .nav {
+            position: sticky;
+            position: -webkit-sticky;
+            top: 4rem;
+        }
+        .sidebar > .nav .nav-item a:focus {
+            @include box-shadow(none);
+        }
+    }
+}
+
+@media (max-width: $size-sm) {
+    .sidebar {
+        @include transform(translateX(100%));
+        @include transition(transform 0.2s ease);
+        background: #fff;
+        height: 100%;
+        max-width: 70%;
+        overflow-y: auto;
+        padding: 3rem 1.5rem;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 12rem;
+        z-index: $zIndex-4;
+    }
+
+    .sidebar:target {
+        @include transform(translateX(0));
+        @include transition(transform 0.2s ease);
+    }
+
+    .sidebar:target + .sidebar-clear {
+        display: block;
+    }
+
+    .sidebar-clear {
+        background: rgba(0, 0, 0, .15);
+        display: none;
+        height: 100%;
+        left: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: 100%;
+        z-index: $zIndex-3;
+    }
+}

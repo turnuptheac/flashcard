@@ -1,0 +1,116 @@
+////////////////////////////////////////////////////////////////////////////////
+//
+// _layout.scss
+//
+// Use this partial to style the layout
+//
+////////////////////////////////////////////////////////////////////////////////
+
+.container {
+    max-width: $maxWidth-content;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+
+.page {
+    margin: $height-nav auto 4rem;
+    padding: 1.5rem 0 2rem;
+}
+
+.page--list,
+.page--form,
+.page--content {
+    max-width: $maxWidth-form;
+}
+
+.page--form .action {
+    margin: 1rem 0 0;
+}
+
+.page--form .title {
+    font-weight: $fontWeight-normal;
+}
+
+.page--form .prompt {
+    color: $color-gray;
+}
+
+
+// Page sections
+.page {
+    margin-bottom: 9rem;
+    margin-top: $height-nav;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+ul.messagelist + .page {
+    margin-top: 0;
+}
+
+.page .section {
+    margin: 0 auto;
+    max-width: $maxWidth-content;
+}
+
+.page .section--narrow {
+    max-width: $maxWidth-narrow;
+}
+
+.page .section > header {
+    padding-bottom: 1rem;
+    padding-top: 3rem;
+}
+
+.page .section ol[type='a'] {
+    list-style-type: lower-alpha;
+    margin-left: 30px;
+}
+
+.page .section ol[type='i'] {
+    list-style-type: lower-roman;
+    margin-left: 20px;
+}
+
+// Page nav-pills section
+.page .section--pills {
+    border-bottom: 0;
+    padding-bottom: 0;
+    padding-top: 15px;
+}
+
+.page .section--pills > header {
+    padding-top: 0rem;
+}
+
+.page .section--pills + .section > header {
+    padding-top: 0.5rem;
+}
+
+.page .nav-pills {
+    @include flex-direction(row);
+    margin: 15px 0;
+}
+
+.page .nav-pills > li {
+    float: left;
+}
+
+.page .nav-pills > li + li {
+    margin-left: 10px;
+}
+
+.page .nav-pills a {
+    background: #f5f5f5;
+    color: $color-grayDark;
+    font-size: $fontSize-medium--small;
+    padding: 8px;
+}
+
+.page .nav-pills a:focus,
+.page .nav-pills a:hover,
+.page .nav-pills a:active {
+    background: #eeeeee;
+    color: $color-black;
+}

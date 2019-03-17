@@ -1,0 +1,17 @@
+////////////////////////////////////////////////////////////////////////////////
+//
+// _reset.scss
+//
+// Use this partial to set custom reset logic
+// @ref https://github.com/Compass/compass/blob/stable/core/stylesheets/compass/reset/_utilities.scss
+//
+////////////////////////////////////////////////////////////////////////////////
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a,
+a:focus {
+    outline: none;
+}

@@ -1,0 +1,65 @@
+////////////////////////////////////////////////////////////////////////////////
+//
+// _variables.scss
+//
+// Use this partial to setup variables used by the project
+//
+////////////////////////////////////////////////////////////////////////////////
+
+$borderRadius-base:          4px !default;
+$borderRadius-large:         6px !default;
+$borderRadius-small:         3px !default;
+$borderRadius-large--editor: 20px;
+
+$color-black:                #222222;
+$color-gray:                 #555555;
+$color-grayDark:             darken($color-gray, 15%);
+$color-grayLight:            lighten($color-gray, 15%);
+$color-grayLighter:          lighten($color-gray, 40%);
+$color-purple:               #4b0096;
+$color-red:                  #d46d6d;
+
+$color-primary:              $color-purple;
+$color-primaryDark:          darken($color-primary, 15%);
+$color-primaryLight:         lighten($color-primary, 15%);
+
+$color-secondary:            lighten($color-primary, 40%);
+$color-secondaryLight:       lighten($color-secondary, 3%);
+
+$fontFamily-sans:            -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+$fontFamily-serif:           Georgia, Cambria, 'Times New Roman', Times, serif;
+$fontFamily-mono:            Consolas, Courier, monospace;
+
+$fontSize-smaller:           12px;
+$fontSize-small:             13px;
+$fontSize-medium--small:     14px;
+$fontSize-base:              16px;
+$fontSize-large:             17px;
+$fontSize-larger:            18px;
+
+$fontWeight-light:           300;
+$fontWeight-normal:          400;
+$fontWeight-medium:          500;
+$fontWeight-bold:            700;
+
+$height-footer:              60px;
+$height-formControl:         50px;
+$height-nav:                 60px;
+
+$lineHeight-tight:           1.3333333 !default; // extra decimals for Win 8.1 Chrome
+$lineHeight-base:            1.6 !default;
+$lineHeight-loose:           1.8 !default;
+$lineHeight-looser:          2.0 !default;
+
+$maxWidth-content:           1000px;
+$maxWidth-form:              550px;
+$maxWidth-narrow:            720px;
+
+$padding-base--vertical:     6px !default;
+$padding-base--horizontal:   12px !default;
+$padding-large--vertical:    18px !default;
+$padding-large--horizontal:  24px !default;
+$padding-small--vertical:    5px !default;
+$padding-small--horizontal:  10px !default;
+$padding-xs--vertical:       1px !default;
+$padding-xs--horizontal:     5px !default;
